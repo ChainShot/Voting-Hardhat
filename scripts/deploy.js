@@ -2,10 +2,7 @@ const fs = require('fs');
 
 async function main() {
   const Voting = await hre.ethers.getContractFactory("Voting");
-  const accounts = [
-    "0x9b49e8A93b241A96A29bEE871a373146B22Fa59F",
-    "0x1ba5605702bf6ac6bd8d9aabf386522634ac9d7e",
-  ]
+  const accounts = await hre.ethers.provider.listAccounts();
   const voting = await Voting.deploy(accounts);
 
   await voting.deployed();
