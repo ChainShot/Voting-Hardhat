@@ -1,0 +1,32 @@
+.proposal {
+  background-color: #eee;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proposal .question {
+  font-weight: bold;
+}
+
+.proposal .counts {
+  display: flex;
+}
+
+.proposal .counts > div {
+  margin: 10px;
+}
+
+.vote-actions {
+  display: flex;
+}
+
+.vote-actions > div {
+  display: flex;
+}
+
+.vote-actions > .vote-no {
+  background-color: #333;
+}
