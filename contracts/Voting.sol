@@ -1,4 +1,5 @@
-pragma solidity ^0.6.2;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.7.5;
 
 contract Voting {
     enum VoteStates {Absent, Yes, No}
@@ -13,26 +14,28 @@ contract Voting {
 
     Proposal[] public proposals;
 
+    function proposalCount() external view returns(uint) {
+      return proposals.length;
+    }
+
     event ProposalCreated(uint);
     event VoteCast(uint, address indexed);
 
     mapping(address => bool) members;
 
-    constructor(address[] memory _members) public {
+    constructor(address[] memory _members) {
         for(uint i = 0; i < _members.length; i++) {
             members[_members[i]] = true;
         }
         members[msg.sender] = true;
     }
 
-    function proposalCount() public view returns(uint) {
-      return proposals.length;
-    }
-
     function newProposal(string calldata _question) external {
         require(members[msg.sender]);
         emit ProposalCreated(proposals.length);
-        proposals.push(Proposal(msg.sender, _question, 0, 0));
+        Proposal storage proposal = proposals.push();
+        proposal.creator = msg.sender;
+        proposal.question = _question;
     }
 
     function castVote(uint _proposalId, bool _supports) external {
