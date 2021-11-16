@@ -5,3 +5,5 @@ artifacts
 .env
 __config.json
 !.gitignore
+.parcel-cache
+dist
