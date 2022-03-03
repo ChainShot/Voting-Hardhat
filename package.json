@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test",
-    "start": "npm run deploy && npx parcel app/index.html",
-    "deploy": "npx hardhat run scripts/deploy.js --network localhost"
+    "start": "npx hardhat run --network localhost scripts/deploy.js && npx parcel app/index.html",
+    "deploy": "npx hardhat run --network localhost scripts/deploy.js "
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,8 @@
     "> 5%"
   ],
   "dependencies": {
-    "hardhat": "^2.0.3"
+    "hardhat": "^2.0.3",
+    "parcel": "^2.3.2"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
