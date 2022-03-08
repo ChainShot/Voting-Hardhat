@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx hardhat test",
     "start": "npm run deploy && npx parcel app/index.html",
-    "deploy": "npx hardhat run scripts/deploy.js --network rinkeby"
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost"
   },
   "keywords": [],
   "author": "",
@@ -21,10 +21,11 @@
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
-    "@parcel/transformer-sass": "^2.0.1",
+    "@parcel/transformer-sass": "^2.3.2",
     "chai": "^4.2.0",
     "ethereum-waffle": "^3.2.0",
     "ethers": "^5.0.19",
+    "parcel": "^2.3.2",
     "sass": "^1.29.0"
   }
 }
